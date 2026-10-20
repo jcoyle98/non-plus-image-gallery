@@ -2607,5 +2607,157 @@
    "contributor": "Wikimedia Commons",
    "added": "2026-10-17"
   }
+ ],
+ "palettes": [
+  {
+   "id": 1,
+   "artist": "Sano di Pietro",
+   "painting": "The Temptation of Saint Anthony Abbot",
+   "date": "c. 1440",
+   "colours": [
+    "#242422",
+    "#d3c8a8",
+    "#56513c",
+    "#81746b",
+    "#bc4b2f"
+   ],
+   "credit": "Palette by evie_hatch",
+   "source": "https://www.instagram.com/p/DeryqVgCqy-/"
+  },
+  {
+   "id": 2,
+   "artist": "Sassetta",
+   "painting": "St. Anthony Beaten by Devils",
+   "date": "c. 1430–1432",
+   "colours": [
+    "#e8c273",
+    "#100d12",
+    "#633f21",
+    "#706a5a",
+    "#5d6a7d"
+   ],
+   "credit": "Palette by evie_hatch",
+   "source": "https://www.instagram.com/p/DeryqVgCqy-/"
+  },
+  {
+   "id": 3,
+   "artist": "Giovanni di Paolo",
+   "painting": "Saint Nicholas of Tolentino Saving a Shipwreck",
+   "date": "1457",
+   "colours": [
+    "#151513",
+    "#d8c07f",
+    "#df633d",
+    "#6f7655",
+    "#d9d3ae"
+   ],
+   "credit": "Palette by evie_hatch",
+   "source": "https://www.instagram.com/p/DeryqVgCqy-/"
+  },
+  {
+   "id": 4,
+   "artist": "Workshop of Simone Martini",
+   "painting": "Saint Bartholomew",
+   "date": "1317–1319",
+   "colours": [
+    "#b99759",
+    "#8e8170",
+    "#3c2c2b",
+    "#a26828",
+    "#84713c"
+   ],
+   "credit": "Palette by evie_hatch",
+   "source": "https://www.instagram.com/p/DeryqVgCqy-/"
+  },
+  {
+   "id": 5,
+   "artist": "Ugolino di Nerio",
+   "painting": "The Resurrection",
+   "date": "c. 1325",
+   "colours": [
+    "#8d7474",
+    "#d3b374",
+    "#777267",
+    "#5e6a7f",
+    "#8d8762"
+   ],
+   "credit": "Palette by evie_hatch",
+   "source": "https://www.instagram.com/p/DeryqVgCqy-/"
+  },
+  {
+   "id": 6,
+   "artist": "Simone Martini",
+   "painting": "Blessed Agostino Novello: the child fallen from a balcony",
+   "date": "c. 1324",
+   "colours": [
+    "#c9785b",
+    "#cfa98d",
+    "#778063",
+    "#c15043",
+    "#a97f47"
+   ],
+   "credit": "Palette by evie_hatch",
+   "source": "https://www.instagram.com/p/DeryqVgCqy-/"
+  },
+  {
+   "id": 7,
+   "artist": "Sienese school",
+   "painting": "A saint rescuing a ship in a storm",
+   "date": "",
+   "colours": [
+    "#3d4e78",
+    "#5f779c",
+    "#d8c164",
+    "#696035",
+    "#d0ccbd"
+   ],
+   "credit": "Palette by evie_hatch",
+   "source": "https://www.instagram.com/p/DeryqVgCqy-/"
+  },
+  {
+   "id": 8,
+   "artist": "Sienese school",
+   "painting": "Saint Anthony Abbot in the wilderness",
+   "date": "",
+   "colours": [
+    "#827356",
+    "#e78961",
+    "#615348",
+    "#efd381",
+    "#8d949c"
+   ],
+   "credit": "Palette by evie_hatch",
+   "source": "https://www.instagram.com/p/DeryqVgCqy-/"
+  },
+  {
+   "id": 9,
+   "artist": "Ugolino di Nerio",
+   "painting": "The Deposition",
+   "date": "c. 1325",
+   "colours": [
+    "#722b35",
+    "#c15043",
+    "#2a3339",
+    "#7b7a4b",
+    "#7c6b6a"
+   ],
+   "credit": "Palette by evie_hatch",
+   "source": "https://www.instagram.com/p/DeryqVgCqy-/"
+  },
+  {
+   "id": 10,
+   "artist": "Sano di Pietro",
+   "painting": "Saint Anthony Leaving His Monastery",
+   "date": "c. 1430–1435",
+   "colours": [
+    "#647553",
+    "#abac88",
+    "#a96152",
+    "#1e1d19",
+    "#a68747"
+   ],
+   "credit": "Palette by evie_hatch",
+   "source": "https://www.instagram.com/p/DeryqVgCqy-/"
+  }
  ]
 }

@@ -1,6 +1,6 @@
 # Non Plus image gallery
 
-A shared, downloadable collection of images for the Non Plus collective: radar screens, particle tracks, cells and embryos.
+A shared, downloadable collection of images for the Non Plus collective: radar screens, particle tracks, cells and embryos, plus colour palettes.
 
 **Site:** https://jcoyle98.github.io/non-plus-image-gallery/
 
@@ -81,3 +81,11 @@ git push
 
 The site updates about a minute after the push. Image numbers never change once assigned,
 so people can refer to "image 37" reliably. To remove an image, delete its file and its entry in `catalog.json`.
+
+## Adding colour palettes
+
+Palettes live in `catalog.json` under `"palettes"`. Each has an `id` (next free number), the painting's
+`artist`, `painting` and `date`, five hex `colours`, a `credit` (who made the palette) and a `source` link.
+On the site each palette shows its swatches (click to copy a hex code) and a **Download** button for an SVG of
+the palette. If a palette comes from someone's post, credit them and link the post; don't add screenshots of
+their post to `images/`. Then build, check, commit and push as above.
