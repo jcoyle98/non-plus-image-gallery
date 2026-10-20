@@ -87,6 +87,5 @@ so people can refer to "image 37" reliably. To remove an image, delete its file 
 Palettes have their own page, `palettes/` on the site, built by `palettes.py`. Each palette is an entry in
 `catalog.json` under `"palettes"`: an `id` (next free number), five hex `colours`, a `credit` (who made the
 palette, e.g. `"Palette by evie_hatch"`) and an optional `source` link. On the page every colour shows its hex
-and RGB values (click to copy), with **Copy as CSS**, **Download SVG**, and a light and a dark mock web page in
-the palette's colours. To extract a palette from a screenshot, read the swatch colours from the image itself.
+and RGB values (click to copy), with **Copy as CSS** and **Download SVG**. To extract a palette from a screenshot, read the swatch colours from the image itself.
 Don't add screenshots of other people's posts to `images/`. Then build, check, commit and push as above.
