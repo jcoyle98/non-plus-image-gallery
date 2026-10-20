@@ -84,8 +84,9 @@ so people can refer to "image 37" reliably. To remove an image, delete its file 
 
 ## Adding colour palettes
 
-Palettes live in `catalog.json` under `"palettes"`. Each has an `id` (next free number), the painting's
-`artist`, `painting` and `date`, five hex `colours`, a `credit` (who made the palette) and a `source` link.
-On the site each palette shows its swatches (click to copy a hex code) and a **Download** button for an SVG of
-the palette. If a palette comes from someone's post, credit them and link the post; don't add screenshots of
-their post to `images/`. Then build, check, commit and push as above.
+Palettes have their own page, `palettes/` on the site, built by `palettes.py`. Each palette is an entry in
+`catalog.json` under `"palettes"`: an `id` (next free number), five hex `colours`, a `credit` (who made the
+palette, e.g. `"Palette by evie_hatch"`) and an optional `source` link. On the page every colour shows its hex
+and RGB values (click to copy), with **Copy as CSS**, **Download SVG**, and a light and a dark mock web page in
+the palette's colours. To extract a palette from a screenshot, read the swatch colours from the image itself.
+Don't add screenshots of other people's posts to `images/`. Then build, check, commit and push as above.

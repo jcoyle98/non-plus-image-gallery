@@ -2611,9 +2611,6 @@
  "palettes": [
   {
    "id": 1,
-   "artist": "Sano di Pietro",
-   "painting": "The Temptation of Saint Anthony Abbot",
-   "date": "c. 1440",
    "colours": [
     "#242422",
     "#d3c8a8",
@@ -2626,9 +2623,6 @@
   },
   {
    "id": 2,
-   "artist": "Sassetta",
-   "painting": "St. Anthony Beaten by Devils",
-   "date": "c. 1430–1432",
    "colours": [
     "#e8c273",
     "#100d12",
@@ -2641,9 +2635,6 @@
   },
   {
    "id": 3,
-   "artist": "Giovanni di Paolo",
-   "painting": "Saint Nicholas of Tolentino Saving a Shipwreck",
-   "date": "1457",
    "colours": [
     "#151513",
     "#d8c07f",
@@ -2656,9 +2647,6 @@
   },
   {
    "id": 4,
-   "artist": "Workshop of Simone Martini",
-   "painting": "Saint Bartholomew",
-   "date": "1317–1319",
    "colours": [
     "#b99759",
     "#8e8170",
@@ -2671,9 +2659,6 @@
   },
   {
    "id": 5,
-   "artist": "Ugolino di Nerio",
-   "painting": "The Resurrection",
-   "date": "c. 1325",
    "colours": [
     "#8d7474",
     "#d3b374",
@@ -2686,9 +2671,6 @@
   },
   {
    "id": 6,
-   "artist": "Simone Martini",
-   "painting": "Blessed Agostino Novello: the child fallen from a balcony",
-   "date": "c. 1324",
    "colours": [
     "#c9785b",
     "#cfa98d",
@@ -2701,9 +2683,6 @@
   },
   {
    "id": 7,
-   "artist": "Sienese school",
-   "painting": "A saint rescuing a ship in a storm",
-   "date": "",
    "colours": [
     "#3d4e78",
     "#5f779c",
@@ -2716,9 +2695,6 @@
   },
   {
    "id": 8,
-   "artist": "Sienese school",
-   "painting": "Saint Anthony Abbot in the wilderness",
-   "date": "",
    "colours": [
     "#827356",
     "#e78961",
@@ -2731,9 +2707,6 @@
   },
   {
    "id": 9,
-   "artist": "Ugolino di Nerio",
-   "painting": "The Deposition",
-   "date": "c. 1325",
    "colours": [
     "#722b35",
     "#c15043",
@@ -2746,9 +2719,6 @@
   },
   {
    "id": 10,
-   "artist": "Sano di Pietro",
-   "painting": "Saint Anthony Leaving His Monastery",
-   "date": "c. 1430–1435",
    "colours": [
     "#647553",
     "#abac88",

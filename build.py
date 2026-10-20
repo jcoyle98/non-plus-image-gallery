@@ -36,25 +36,7 @@ def tile(img):
             f'<span class="dl"><a class="btn" href="{e(img["file"])}" download="{e(name)}">Download</a>{full}</span></figcaption></figure>')
 
 
-def palette_svg(pal):
-    """A palette as a small vector file: five swatches with their hex codes. Opens in Illustrator."""
-    sw = "".join(f'<rect x="{i * 200}" y="0" width="200" height="200" fill="{c}"/>'
-                 f'<text x="{i * 200 + 12}" y="228" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#222">{c}</text>'
-                 for i, c in enumerate(pal["colours"]))
-    title = f'{pal["artist"]}, {pal["painting"]}' + (f' ({pal["date"]})' if pal["date"] else "")
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="290" viewBox="0 0 1000 290">'
-            f'<rect width="1000" height="290" fill="#fff"/>{sw}'
-            f'<text x="12" y="270" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#555">{e(title)} · {e(pal["credit"])}</text></svg>\n')
-
-
-def palette_card(pal):
-    name = f'palette-{pal["id"]:02d}.svg'
-    swatches = "".join(f'<button class="sw" style="background:{c}" data-hex="{c}" title="Copy {c}"><span>{c}</span></button>' for c in pal["colours"])
-    date = f' ({e(pal["date"])})' if pal["date"] else ""
-    return (f'<figure class="pal" id="palette-{pal["id"]}"><div class="sws">{swatches}</div>'
-            f'<figcaption><b>{pal["id"]}</b> {e(pal["artist"])}, <i>{e(pal["painting"])}</i>{date}<br>'
-            f'<span class="credit"><a href="{e(pal["source"])}" target="_blank" rel="noopener">{e(pal["credit"])}</a> · click a colour to copy its code</span>'
-            f'<span class="dl"><a class="btn" href="palettes/{name}" download="{name}">Download</a></span></figcaption></figure>')
+from palettes import build_palette_page
 
 
 def build():
@@ -62,9 +44,7 @@ def build():
         shutil.rmtree(OUT)
     shutil.copytree(ROOT / "images", OUT / "images")
     (OUT / ".nojekyll").touch()
-    (OUT / "palettes").mkdir()
-    for pal in PALETTES:
-        (OUT / "palettes" / f'palette-{pal["id"]:02d}.svg').write_text(palette_svg(pal), encoding="utf-8")
+    build_palette_page(PALETTES, OUT / "palettes")
 
     nav, body = [], []
     for key, label in SECTIONS.items():
@@ -74,8 +54,7 @@ def build():
         nav.append(f'<a href="#{key}">{e(label)} <small>{len(items)}</small></a>')
         body.append(f'<h2 id="{key}">{e(label)}</h2><div class="grid">{"".join(tile(i) for i in items)}</div>')
     if PALETTES:
-        nav.append(f'<a href="#palettes">Colour palettes <small>{len(PALETTES)}</small></a>')
-        body.append(f'<h2 id="palettes">Colour palettes</h2><div class="pgrid">{"".join(palette_card(p) for p in PALETTES)}</div>')
+        nav.append(f'<a href="palettes/">Colour palettes <small>{len(PALETTES)}</small> →</a>')
 
     (OUT / "index.html").write_text(f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -102,12 +81,7 @@ def build():
  .btn {{ padding:.3rem .7rem; border:1px solid var(--fg); border-radius:3px; text-decoration:none; }}
  .btn:hover {{ background:var(--fg); color:var(--bg) !important; }}
  footer {{ color:var(--muted); padding:3rem 1.25rem; font-size:.85rem; }}
- .pgrid {{ display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:2rem 1.6rem; }}
- .sws {{ display:flex; height:9rem; }}
- .sw {{ flex:1; border:0; padding:0; cursor:pointer; position:relative; font:inherit; }}
- .sw span {{ position:absolute; left:0; right:0; bottom:-1.6rem; font-size:.72rem; color:var(--muted); font-family:ui-monospace, Menlo, monospace; }}
- .sw.copied span {{ color:var(--accent); }}
- .pal figcaption {{ margin-top:2.2rem; }}
+
 </style></head><body>
 <header>
  <h1>Non Plus image gallery</h1>
@@ -119,13 +93,6 @@ def build():
 <nav>{"".join(nav)}</nav>
 <main>{"".join(body)}</main>
 <footer>Images from Wikimedia Commons and the Wellcome Collection, under the licences shown. Gallery maintained by the Non Plus collective.</footer>
-<script>
- document.querySelectorAll(".sw").forEach(b => b.addEventListener("click", async () => {{
-   try {{ await navigator.clipboard.writeText(b.dataset.hex); }} catch (_) {{ return; }}
-   const s = b.querySelector("span"), t = s.textContent; b.classList.add("copied"); s.textContent = "copied";
-   setTimeout(() => {{ b.classList.remove("copied"); s.textContent = t; }}, 1200);
- }}));
-</script>
 </body></html>
 ''', encoding="utf-8")
     print(f"Built {len(IMAGES)} images and {len(PALETTES)} palettes into _site/")
