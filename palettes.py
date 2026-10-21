@@ -17,11 +17,12 @@ def luminance(hex_):
 
 
 def svg(pal):
+    w = 200 * len(pal["colours"])   # palettes have two to five colours
     sw = "".join(f'<rect x="{i * 200}" y="0" width="200" height="200" fill="{c}"/>'
                  f'<text x="12" y="228" transform="translate({i * 200} 0)" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#222">{c}</text>'
                  for i, c in enumerate(pal["colours"]))
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="250" viewBox="0 0 1000 250">'
-            f'<rect width="1000" height="250" fill="#fff"/>{sw}</svg>\n')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="250" viewBox="0 0 {w} 250">'
+            f'<rect width="{w}" height="250" fill="#fff"/>{sw}</svg>\n')
 
 
 def card(pal):
@@ -31,7 +32,7 @@ def card(pal):
         f'<span class="hex">{c.upper()}</span><span class="rgb">{", ".join(map(str, rgb(c)))}</span></button>'
         for c in pal["colours"])
     css = ":root {\\n" + "".join(f"  --colour-{i}: {c};\\n" for i, c in enumerate(pal["colours"], 1)) + "}"
-    return (f'<section class="pal" id="p{n}"><h2>{n:02d}</h2><div class="sws">{sw}</div>'
+    return (f'<section class="pal" id="p{n}"><h2>{n:02d}</h2><div class="sws" style="grid-template-columns:repeat({len(pal["colours"])}, 1fr)">{sw}</div>'
             f'<div class="tools"><button class="btn" data-copy="{css}">Copy as CSS</button>'
             f'<a class="btn" href="palette-{n:02d}.svg" download="palette-{n:02d}.svg">Download SVG</a></div></section>')
 
@@ -68,7 +69,7 @@ def build_palette_page(palettes, out: Path):
  @media (max-width:640px) {{ .sw {{ height:8rem; padding:.5rem; }} .sw .hex {{ font-size:.8rem; }} .sw .rgb {{ display:none; }} }}
 </style></head><body>
 <header><h1>Colour palettes</h1>
-<p>{len(palettes)} five-colour palettes, by {credit}. Click any colour to copy its hex code.</p>
+<p>{len(palettes)} palettes, by {credit}. Click any colour to copy its hex code.</p>
 <p><a href="../">← Back to the image gallery</a></p></header>
 <main>{"".join(card(p) for p in palettes)}</main>
 <div class="toast" id="toast"></div>
