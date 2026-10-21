@@ -1,6 +1,5 @@
 """The colour palettes page: _site/palettes/index.html, plus one downloadable SVG per palette."""
 
-import html
 from pathlib import Path
 
 
@@ -41,9 +40,6 @@ def build_palette_page(palettes, out: Path):
     out.mkdir(parents=True, exist_ok=True)
     for pal in palettes:
         (out / f'palette-{pal["id"]:02d}.svg').write_text(svg(pal), encoding="utf-8")
-    credits = sorted({(p["credit"], p.get("source", "")) for p in palettes})
-    name = lambda c: html.escape(c.replace("Palette by ", ""))
-    credit = " and ".join(f'<a href="{html.escape(u)}" target="_blank" rel="noopener">{name(c)}</a>' if u else name(c) for c, u in credits)
     (out / "index.html").write_text(f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Non Plus colour palettes</title>
@@ -69,7 +65,6 @@ def build_palette_page(palettes, out: Path):
  @media (max-width:640px) {{ .sw {{ height:8rem; padding:.5rem; }} .sw .hex {{ font-size:.8rem; }} .sw .rgb {{ display:none; }} }}
 </style></head><body>
 <header><h1>Colour palettes</h1>
-<p>{len(palettes)} palettes, by {credit}. Click any colour to copy its hex code.</p>
 <p><a href="../">← Back to the image gallery</a></p></header>
 <main>{"".join(card(p) for p in palettes)}</main>
 <div class="toast" id="toast"></div>
